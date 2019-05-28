@@ -1,5 +1,6 @@
-// cache the DOM; HTML variables that store DOM elements get tagged with an underscore, woo!
 
+
+// cache the DOM; HTML variables that store DOM elements get tagged with an underscore, woo!
 const userScore = 0;
 const computerScore = 0;
 const userScore_span = document.getElementById('user-score');
@@ -10,10 +11,24 @@ const rock_div = document.getElementById('r');
 const paper_div = document.getElementById('p');
 const scissors_div = document.getElementById('s');
 
+
+// functions :p
 function getComputerChoice(){
 	const choices = ['r', 'p', 's'];
 	const randomNumber = Math.floor(Math.random() * 3);
 	return choices[randomNumber];
+}
+
+function win(){
+	console.log('win');
+}
+
+function lose(){
+	console.log('lose');
+}
+
+function draw(){
+	console.log('draw');
 }
 
 function game(userChoice){
@@ -22,20 +37,19 @@ function game(userChoice){
 		case 'rs':
 		case 'pr':
 		case 'sp':
-			console.log('user wins');
+			win();
 			break;
 		case 'rp':
 		case 'ps':
 		case 'sr':
-			console.log('computer wins');
+			lose();
 			break;
 		case 'rr':
 		case 'pp':
 		case 'ss':
-			console.log('tie');
+			draw();
 			break;
 	}
-
 }
 
 function main(){	// get it all into its own little cosmos
