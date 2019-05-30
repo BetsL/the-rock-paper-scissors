@@ -2,6 +2,7 @@
 
 // cache the DOM; HTML variables that store DOM elements get tagged with an underscore, woo!
 
+
 let userScore = 0;
 let computerScore = 0;
 const userScore_span = document.getElementById('user-score');
@@ -34,19 +35,29 @@ function win(user, compy){
 	userScore++;
 	userScore_span.innerHTML = userScore;
 	computerScore_span.innerHTML = computerScore;
-	result_p.innerHTML = convertToWord(user) + ' beats ' + convertToWord(compy) + '. You win!';
+	const smallUserWord = "user".fontsize(3).sub();
+	const smallCompWord = "comp".fontsize(3).sub();
+	result_p.innerHTML = `${convertToWord(user)}${smallUserWord} beats ${convertToWord(compy)}${smallCompWord}. You win!`;
+	document.getElementById(user).classList.add('green-glow');
 }
 
-function lose(){
-	console.log('lose');
+function lose(user, compy){
+	computerScore++;
+	userScore_span.innerHTML = userScore;
+	computerScore_span.innerHTML = computerScore;
+	const smallUserWord = "user".fontsize(3).sub();
+	const smallCompWord = "comp".fontsize(3).sub();
+	result_p.innerHTML = `${convertToWord(user)}${smallUserWord} loses to ${convertToWord(compy)}${smallCompWord}. You lost.`;
 }
 
-function draw(){
-	console.log('draw');
+function draw(user, compy){
+	const smallUserWord = "user".fontsize(3).sub();
+	const smallCompWord = "comp".fontsize(3).sub();
+	result_p.innerHTML = `${convertToWord(user)}${smallUserWord} equals ${convertToWord(compy)}${smallCompWord}. It's a draw`;
 }
 
 
-// user behavior/cosmos
+// user behavior/game cosmos; 
 function game(userChoice){
 	const computerChoice = getComputerChoice();
 	switch(userChoice + computerChoice){
