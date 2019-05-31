@@ -66,7 +66,7 @@ function draw(user, compy){
 	const smallCompWord = "comp".fontsize(3).sub();
 	const user_div = document.getElementById(user);
 
-	result_p.innerHTML = `${convertToWord(user)}${smallUserWord} equals ${convertToWord(compy)}${smallCompWord}. It's a draw`;
+	result_p.innerHTML = `${convertToWord(user)}${smallUserWord} equals ${convertToWord(compy)}${smallCompWord}. It's a draw.`;
 	user_div.classList.add('grey-glow');
 	
 	setTimeout(() => user_div.classList.remove('grey-glow'), 1000);
